@@ -24,6 +24,7 @@ use App\Http\Controllers\FeaturesController;
 use App\Http\Controllers\TopSellingController;
 
 use App\Http\Middleware\Authenticate;
+use Illuminate\Support\Facades\Auth;
 
 
 // Authentication
@@ -43,7 +44,6 @@ Route::get('/', function () {
 Route::post('/', [AuthController::class, 'handleLogin']);
 
 
-Route::get('/main', [MainController::class, 'read'])->middleware('isLoggedIn');
 
 // BANNERS
 
@@ -167,15 +167,9 @@ Route::post('/editProduct/{id}', [TopSellingController::class, 'update']);
 // Delete
 Route::get('/removeProduct/{id}', [TopSellingController::class, 'delete']);
 
-
-
-
 // MAIN 
 
-Route::get('/main', function () {
-    return view('main/main');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/main', [MainController::class, 'read']);
 });
-
-// Read
-Route::get('/main', [MainController::class, 'read']);
 
