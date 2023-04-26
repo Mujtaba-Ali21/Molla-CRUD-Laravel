@@ -30,11 +30,13 @@ use Illuminate\Support\Facades\Auth;
 // Authentication
 
 // Register
+
 Route::get('/register', function () {
     return view('register');
 });
 
-Route::post('/register', [AuthController::class, 'registerLogin']);
+Route::post('/register', [AuthController::class, 'handleRegister']);
+
 
 // Login
 Route::get('/', function () {
@@ -42,6 +44,10 @@ Route::get('/', function () {
 });
 
 Route::post('/', [AuthController::class, 'handleLogin']);
+
+
+// Logout
+Route::get('/logout', [AuthController::class, 'handleLogout'])->name('logout');
 
 
 

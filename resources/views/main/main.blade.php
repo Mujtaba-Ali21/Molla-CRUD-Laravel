@@ -9,6 +9,7 @@
 <header class="header header-2 header-intro-clearance">
 
 <div class="header-middle">
+    
   <div class="container">
     <div class="header-left">
       <button class="mobile-menu-toggler">
@@ -22,6 +23,7 @@
     </div><!-- End .header-left -->
 
     <div class="header-center">
+        
       <div class="header-search header-search-extended header-search-visible header-search-no-radius d-none d-lg-block">
         <a href="#" class="search-toggle" role="button"><i class="far fa-search"></i></a>
         <form action="#" method="get">
@@ -62,10 +64,13 @@
           </div>
           <p>Cart</p>
         </a>
+        
+    </div><!-- End .cart-dropdown -->
+</div><!-- End .header-right -->
 
-      </div><!-- End .cart-dropdown -->
-    </div><!-- End .header-right -->
-  </div><!-- End .container -->
+<button class="border-0 btn-success-outline rounded" style="background-color: #a6c76c; height: 45px; margin: 0 0 5px 100px; padding: 0 20px 0 20px;"> <a href="/logout" class="text-white">Logout</a></button>
+
+</div><!-- End .container -->
 </div><!-- End .header-middle -->
 
 </header><!-- End .header -->
@@ -75,7 +80,6 @@
 
         <div class="mb-0">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="height: 390px;">
-        <div class="carousel-inner" style="height: 100%;">
             @foreach($banners as $index => $banner)
             <div class="carousel-item @if($index === 0)active @endif" style="height: 100%;">
                 <img src="/bannerImages/{{ $banner->image }}" class="d-block w-100" alt="{{ $banner->text }}">
@@ -85,7 +89,7 @@
                 </div>
             </div>
             @endforeach
-        </div>
+     
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -98,6 +102,7 @@
         </button>
     </div>
 </div>
+
 <div class="brands-border" data-toggle="owl" 
                 data-owl-options='{
                     "nav": false, 
@@ -181,7 +186,7 @@
 
 
             <div class="container">
-                <ul class="nav nav-pills nav-border-anim nav-big justify-content-center mb-3" role="tablist">
+                <ul class="nav nav-pills nav-border-anim nav-big justify-content-center mb-5" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="products-featured-link" data-toggle="tab" href="#products-featured-tab" role="tab" aria-controls="products-featured-tab" aria-selected="true">Featured</a>
                     </li>

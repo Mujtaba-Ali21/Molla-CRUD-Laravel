@@ -7,12 +7,13 @@ use Illuminate\Http\Request;
 
 class Authenticate
 {
-    public function handle(Request $request, Closure $next)
+        public function handle($req, Closure $next)
     {
-        if (!$request->session()->has('success')) {
-            return redirect('/')->with('error', 'You must be logged in to access this page.');
+        if ($req->session()->get('isLoggedIn')) {
+            return $next($req);
         }
 
-        return $next($request);
+        return redirect('/')->with('error', 'You must be Logged In to access this page.');
     }
+
 }

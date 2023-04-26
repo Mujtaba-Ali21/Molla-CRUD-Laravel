@@ -19,8 +19,9 @@ class AuthController extends Controller
             if ($validated['password'] == $user->password)
             {
                 $req->session()
-                    ->flash('success', 'Logged In Successfully!');
-                return redirect('main');
+                    ->put('isLoggedIn', true);  // set session variable to indicate that user is logged in
+         
+                return redirect('/main');
             }
             else
             {
@@ -39,7 +40,17 @@ class AuthController extends Controller
         }
     }
 
-    public function registerLogin(Request $req)
+
+        public function handleLogout(Request $req)
+    {
+        Auth::logout();
+        // unset session variable to indicate that user is logged out
+        $req->session()->forget('isLoggedIn');
+        return redirect('/');
+    }
+
+    
+    public function handleRegister(Request $req)
     {
         $validated = $req->validate(['username' => 'required', 'email' => 'required|unique:users', 'password' => 'required|min:6']);
 
