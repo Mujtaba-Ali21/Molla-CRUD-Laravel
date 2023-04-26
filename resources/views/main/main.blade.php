@@ -25,12 +25,12 @@
     <div class="header-center">
         
       <div class="header-search header-search-extended header-search-visible header-search-no-radius d-none d-lg-block">
-        <a href="#" class="search-toggle" role="button"><i class="far fa-search"></i></a>
+        <a href="#" class="search-toggle" role="button"><i class="bi bi-search"></i></a>
         <form action="#" method="get">
           <div class="header-search-wrapper search-wrapper-wide">
             <label for="q" class="sr-only">Search</label>
             <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..." required>
-            <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+            <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
           </div><!-- End .header-search-wrapper -->
         </form>
       </div><!-- End .header-search -->
@@ -40,7 +40,7 @@
       <div class="account">
         <a href="#" title="My account">
           <div class="icon">
-            <i class="far fa-user"></i>
+          <i class="bi bi-person"></i>
           </div>
           <p>Account</p>
         </a>
@@ -49,7 +49,7 @@
       <div class="wishlist">
         <a href="#" title="Wishlist">
           <div class="icon">
-            <i class="far fa-heart"></i>
+          <i class="bi bi-heart"></i>
             <span class="wishlist-count badge">3</span>
           </div>
           <p>Wishlist</p>
@@ -59,7 +59,7 @@
       <div class="dropdown cart-dropdown">
         <a href="#" class="dropdown-toggle">
           <div class="icon">
-          <i class="fa fa-shopping-cart"></i>
+          <i class="bi bi-cart"></i>
             <span class="cart-count">2</span>
           </div>
           <p>Cart</p>
@@ -78,18 +78,17 @@
 
         <main class="main">
 
-        <div class="mb-0">
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="height: 390px;">
             @foreach($banners as $index => $banner)
             <div class="carousel-item @if($index === 0)active @endif" style="height: 100%;">
                 <img src="/bannerImages/{{ $banner->image }}" class="d-block w-100" alt="{{ $banner->text }}">
                 <div class="intro-container d-flex flex-column justify-content-center align-items-center">
                     <div class="intro-title">{!! $banner->text !!}</div>
-                    <button class="btn btn-outline-light"><a href="#" class="text-white">Shop Now →</a></button>
+                    <button class="btn btn-outline-light"><a href="#" class="text-white">Shop Now <i class="bi bi-arrow-right"></i></a></button>
                 </div>
             </div>
+            
             @endforeach
-     
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
             data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -101,7 +100,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-</div>
+
 
 <div class="brands-border" data-toggle="owl" 
                 data-owl-options='{
@@ -155,7 +154,7 @@
 
             <div class="banner-content banner-content-bottom">
                 <div class="banner-text text-gray" style="color: #fff;">{!! $category->text !!}</div>
-                <a href="#" class="btn btn-outline-white banner-link">Discover Now -></a>
+                <a href="#" class="btn btn-outline-white banner-link">Discover Now<i class="bi bi-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -170,7 +169,7 @@
 
             <div class="banner-content banner-content-bottom">
                 <div class="banner-text text-gray" style="color: #fff;">{!! $category->text !!}</div>
-                <a href="#" class="btn btn-outline-white banner-link">Discover Now -></a>
+                <a href="#" class="btn btn-outline-white banner-link">Discover Now<i class="bi bi-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -186,7 +185,7 @@
 
 
             <div class="container">
-                <ul class="nav nav-pills nav-border-anim nav-big justify-content-center mb-5" role="tablist">
+                <ul class="nav nav-pills nav-border-anim nav-big justify-content-center mb-3" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="products-featured-link" data-toggle="tab" href="#products-featured-tab" role="tab" aria-controls="products-featured-tab" aria-selected="true">Featured</a>
                     </li>
@@ -206,19 +205,22 @@
                                                 <img src="/featureImages/{{ $feature->image }}" alt="{{ $feature->name }}" class="product-image">
                                             </a>
 
-                                            <div class="product-action-vertical">
-                                                <a href="#"  class="far fa-heart"></a>
+                                            <div class="product-action-vertical rounded-circle border border-1">
+                                                <a href="#"  class="bi bi-heart me-3 text-dark"></a>
                                             </div><!-- End .product-action-vertical -->
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
+                                            <div class="product-cat">
+                                                <a href="#">Featured</a>
+                                            </div><!-- End .product-cat -->
                                             <h3 class="product-title"><a href="#">{{ $feature->name }}</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 ${{ $feature->price }}.00
                                             </div><!-- End .product-price -->
                                         </div><!-- End .product-body -->
                                         <div class="product-action">
-                                            <a href="#" class="btn-product me-5"> <i class="fa fa-shopping-cart"><span> add to cart</span></i></a>
+                                            <a href="#" class="btn-product me-5"> <i class="bi bi-cart"><span> add to cart</span></i></a>
                                         </div><!-- End .product-action -->
                                     </div><!-- End .product -->
                                  </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
@@ -253,19 +255,22 @@
                                                 <img src="/top_sellingImages/{{ $top_selling->image }}" alt="{{ $top_selling->name }}" class="product-image">
                                             </a>
 
-                                            <div class="product-action-vertical">
-                                                <a href="#"  class="far fa-heart"></a>
+                                            <div class="product-action-vertical rounded-circle border border-1">
+                                                <a href="#"  class="bi bi-heart me-3 text-dark"></a>
                                             </div><!-- End .product-action-vertical -->
                                         </figure><!-- End .product-media -->
 
                                         <div class="product-body">
+                                        <div class="product-cat">
+                                                <a href="#">Top Selling</a>
+                                            </div><!-- End .product-cat -->
                                             <h3 class="product-title"><a href="#">{{ $top_selling->name }}</a></h3><!-- End .product-title -->
                                             <div class="product-price">
                                                 ${{ $top_selling->price }}.00
                                             </div><!-- End .product-price -->
                                         </div><!-- End .product-body -->
                                         <div class="product-action">
-                                            <a href="#" class="btn-product me-5"> <i class="fa fa-shopping-cart"><span> add to cart</span></i></a>
+                                            <a href="#" class="btn-product me-5"> <i class="bi bi-cart"><span> add to cart</span></i></a>
                                         </div><!-- End .product-action -->
                                     </div><!-- End .product -->
                                  </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
@@ -371,7 +376,7 @@
 	        </div><!-- End .footer-bottom -->
         </footer><!-- End .footer -->
     </div><!-- End .page-wrapper -->
-    <button id="scroll-top" title="Back to Top">↑</button>
+    <button id="scroll-top" title="Back to Top"><i class="bi bi-arrow-up"></i></button>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
@@ -383,7 +388,7 @@
             <form action="#" method="get" class="mobile-search">
                 <label for="mobile-search" class="sr-only">Search</label>
                 <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search product ..." required>
-                <button class="btn btn-primary" type="submit"><i class="far fa-search"></i></button>
+                <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
             </form>
 
             <ul class="nav nav-pills-mobile nav-border-anim" role="tablist">
