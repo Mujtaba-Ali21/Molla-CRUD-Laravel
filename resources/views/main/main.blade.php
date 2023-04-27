@@ -68,7 +68,7 @@
     </div><!-- End .cart-dropdown -->
 </div><!-- End .header-right -->
 
-<button class="border-0 btn-success-outline rounded" style="background-color: #a6c76c; height: 45px; margin: 0 0 5px 100px; padding: 0 20px 0 20px;"> <a href="/logout" class="text-white">Logout</a></button>
+<a href="/logout" class="text-white"><button class="border-0 btn-success-outline rounded" style="background-color: #a6c76c; color: white; height: 45px; margin: 0 0 5px 100px; padding: 0 20px 0 20px;">Logout</button></a>
 
 </div><!-- End .container -->
 </div><!-- End .header-middle -->
