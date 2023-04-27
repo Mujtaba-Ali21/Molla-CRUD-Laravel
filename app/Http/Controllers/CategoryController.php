@@ -36,6 +36,7 @@ class CategoryController extends Controller
     }
 
     // Read
+
     public function read()
     {
         $data = Category::all();
@@ -44,6 +45,7 @@ class CategoryController extends Controller
     }
 
     // Update
+
     public function showUpdate($id)
     {
         $data = Category::find($id);
@@ -77,6 +79,7 @@ class CategoryController extends Controller
     }
 
     // Delete
+    
     public function delete(Request $req, $id)
     {
         $category = Category::find($req->id);

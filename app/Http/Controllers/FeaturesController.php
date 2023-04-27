@@ -8,6 +8,7 @@ use App\Models\Feature;
 
 class FeaturesController extends Controller
 {
+
     // Create
 
     public function create(Request $req)
@@ -38,6 +39,7 @@ class FeaturesController extends Controller
     }
 
     // Read
+
     public function read()
     {
         $data = Feature::all();
@@ -46,6 +48,7 @@ class FeaturesController extends Controller
     }
 
     // Update
+
     public function showUpdate($id)
     {
         $data = Feature::find($id);
@@ -81,6 +84,7 @@ class FeaturesController extends Controller
     }
 
     // Delete
+    
     public function delete(Request $req, $id)
     {
         $feature = Feature::find($req->id);

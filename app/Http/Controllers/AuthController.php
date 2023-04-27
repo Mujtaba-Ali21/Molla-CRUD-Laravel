@@ -19,7 +19,7 @@ class AuthController extends Controller
             if ($validated['password'] == $user->password)
             {
                 $req->session()
-                    ->put('isLoggedIn', true);  // set session variable to indicate that user is logged in
+                    ->put('isLoggedIn', true);  // set session variable to indicate that user is LOGGED IN
          
                 return redirect('/main');
             }
@@ -44,8 +44,7 @@ class AuthController extends Controller
         public function handleLogout(Request $req)
     {
         Auth::logout();
-        // unset session variable to indicate that user is logged out
-        $req->session()->forget('isLoggedIn');
+        $req->session()->forget('isLoggedIn');  // unset session variable to indicate that user is LOGGED OUT
         return redirect('/');
     }
 
@@ -65,4 +64,3 @@ class AuthController extends Controller
         return redirect('/');
     }
 }
-

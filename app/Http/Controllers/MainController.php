@@ -14,24 +14,20 @@ class MainController extends Controller
     public function read()
     {
         // Banners View
-
         $banners = Banner::all();
 
         // Brands View
-
         $brands = Brand::all();
 
-        // Categories  View
-
+        // Categories View
         $categories = Category::all();
 
-        // Features  View
-
+        // Features View
         $features = Feature::all();
 
-        // Top Sellings  View
-
+        // Top Sellings View
         $top_sellings = Top_selling::all();
+
 
         return view("main/main", [
             "banners" => $banners,

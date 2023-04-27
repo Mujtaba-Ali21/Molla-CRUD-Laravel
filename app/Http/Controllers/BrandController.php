@@ -10,7 +10,6 @@ class BrandController extends Controller
 {
     
     // Create
-    
 
     public function create(Request $req)
     {
@@ -34,17 +33,17 @@ class BrandController extends Controller
         return redirect('/brandsTable');
     }
 
-
     // Read
+
     public function read()
     {
         $data = Brand::all();
 
         return view('tables/brandsTable', ['data' => $data]);
     }
-
     
     // Update
+
     public function showUpdate($id)
     {
         $data = Brand::find($id);
@@ -75,8 +74,8 @@ class BrandController extends Controller
         return redirect('/brandsTable');
     }
 
-
     // Delete
+    
     public function delete(Request $req, $id)
     {
         $brand = Brand::find($req->id);

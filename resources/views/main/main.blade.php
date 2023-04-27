@@ -10,13 +10,8 @@
 
 <div class="header-middle">
     
-  <div class="container">
+  <div class="container-fluid">
     <div class="header-left">
-      <button class="mobile-menu-toggler">
-        <span class="sr-only">Toggle mobile menu</span>
-        <i class="far fa-bars"></i>
-      </button>
-
       <a href="#" class="logo">
         <img src="{{ asset('utills/logo.png') }}" alt="Molla Logo" width="105" height="25">
       </a>
@@ -36,7 +31,7 @@
       </div><!-- End .header-search -->
     </div>
 
-    <div class="header-right">
+    <div class="header-right me-5">
       <div class="account">
         <a href="#" title="My account">
           <div class="icon">
@@ -68,7 +63,7 @@
     </div><!-- End .cart-dropdown -->
 </div><!-- End .header-right -->
 
-<a href="/logout" class="text-white"><button class="border-0 btn-success-outline rounded" style="background-color: #a6c76c; color: white; height: 45px; margin: 0 0 5px 100px; padding: 0 20px 0 20px;">Logout</button></a>
+<a href="/logout" class="text-white"><button class="border-0 btn-success-outline rounded" style="background-color: #a6c76c; color: white; height: 45px; padding: 0 20px 0 20px;">Logout</button></a>
 
 </div><!-- End .container -->
 </div><!-- End .header-middle -->
@@ -78,28 +73,38 @@
 
         <main class="main">
 
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" style="height: 390px;">
-            @foreach($banners as $index => $banner)
-            <div class="carousel-item @if($index === 0)active @endif" style="height: 100%;">
-                <img src="/bannerImages/{{ $banner->image }}" class="d-block w-100" alt="{{ $banner->text }}">
-                <div class="intro-container d-flex flex-column justify-content-center align-items-center">
-                    <div class="intro-title">{!! $banner->text !!}</div>
-                    <button class="btn btn-outline-light"><a href="#" class="text-white">Shop Now <i class="bi bi-arrow-right"></i></a></button>
-                </div>
-            </div>
-            
-            @endforeach
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="hover">
+    @foreach($banners as $index => $banner)
+    <div class="carousel-item @if($index === 0)active @endif" style="background-image: url('/bannerImages/{{ $banner->image }}'); height: 500px;">
+    <div class="intro-container d-flex flex-column justify-content-center align-items-center">
+        <div class="intro-title">{!! $banner->text !!}</div>
+        <button class="btn btn-outline-light"><a href="#" class="text-white">Shop Now <i class="bi bi-arrow-right"></i></a></button>
     </div>
+</div>
+
+    @endforeach
+</div>
+
+    <div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev" style="
+    top: 300px;
+    height: 100px;
+">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next" style="
+    top: 300px;
+    height: 100px;
+">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+</div>
+
 
 
 <div class="brands-border" data-toggle="owl" 
@@ -145,8 +150,22 @@
 
                         @foreach($categories as $key => $category)
 
-    @if($key < 3)
-    <div class="col-md-8 col-lg-4">
+                        @if($key == 0)
+    <div class="col-md-12 col-lg-5">
+        <div class="banner banner-overlay">
+            <a href="#">
+                <img src="/categoryImages/{{ $category->image }}">
+            </a>
+
+            <div class="banner-content banner-content-top" style="color: #fff !important;">
+                <div class="banner-text text-gray">{!! $category->text !!}</div>
+                <a href="#" class="btn btn-outline-dark banner-link">Shop Now<i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+    @endif
+    @if($key == 1)
+    <div class="col-md-6 col-lg-3">
         <div class="banner banner-overlay">
             <a href="#">
                 <img src="/categoryImages/{{ $category->image }}">
@@ -159,17 +178,29 @@
         </div>
     </div>
     @endif
-    @if($key == 3)
-    <div class="col-md-8 col-lg-4" style="margin: 0 0 0 779px; position: relative;
-    bottom: 405px;">
+    
+     @if($key == 2)
+    <div class="col-md-6 col-lg-4">
         <div class="banner banner-overlay">
             <a href="#">
                 <img src="/categoryImages/{{ $category->image }}">
             </a>
 
-            <div class="banner-content banner-content-bottom">
+            <div class="banner-content banner-content-top color-white">
                 <div class="banner-text text-gray" style="color: #fff;">{!! $category->text !!}</div>
                 <a href="#" class="btn btn-outline-white banner-link">Discover Now<i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    @endif
+    @if($key == 3)
+        <div class="banner banner-overlay">
+            <a href="#">
+                <img src="/categoryImages/{{ $category->image }}">
+            </a>
+
+            <div class="banner-content banner-content-top">
+                <div class="banner-text text-gray" style="color: #fff; !important">{!! $category->text !!}</div>
+                <a href="#" class="btn btn-outline-dark banner-link">Shop Now<i class="bi bi-arrow-right"></i></a>
             </div>
         </div>
     </div>

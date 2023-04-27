@@ -8,9 +8,8 @@ use App\Models\Banner;
 
 class BannerController extends Controller
 {
-    
+
     // Create
-    
 
     public function create(Request $req)
     {
@@ -31,17 +30,17 @@ class BannerController extends Controller
         return redirect('/bannersTable');
     }
 
-
     // Read
+
     public function read()
     {
         $data = Banner::all();
 
         return view('tables/bannersTable', ['data' => $data]);
     }
-
     
     // Update
+
     public function showUpdate($id)
     {
         $data = Banner::find($id);
@@ -69,8 +68,8 @@ class BannerController extends Controller
         return redirect('/bannersTable');
     }
 
-
     // Delete
+
     public function delete(Request $req, $id)
     {
         $banner = Banner::find($req->id);
@@ -78,6 +77,4 @@ class BannerController extends Controller
         session()->flash('success', 'Banner Deleted successfully!');
         return redirect('/bannersTable');
     }
-
-
 }

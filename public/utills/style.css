@@ -14788,7 +14788,33 @@ button:focus {
         color: #fff !important; /* Set the color to white */
     }
 
+    .intro-title p,
+.banner-content-top .text-gray,
+    .banner-content-top .text-gray p,
+    .banner-content-top .text-gray span {
+        color: #333333 !important; /* Set the color to white */
+    }
+    
+    .btn-outline-dark {
+      color: #333333 !important;
+    background-color: transparent;
+    background-image: none;
+    border-color: #333333 !important;
+    box-shadow: none;
+    }
 
+    .btn-outline-dark:hover {
+      background-color: #a6c76c;
+      color: #fff !important;
+      border: #a6c76c;
+  }
+
+    .intro-title p,
+.color-white .text-gray,
+    .color-white .text-gray p,
+    .color-white .text-gray span {
+        color: #fff !important; /* Set the color to white */
+    }
 
 /* '' */
 

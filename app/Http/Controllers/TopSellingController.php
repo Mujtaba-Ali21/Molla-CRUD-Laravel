@@ -8,6 +8,7 @@ use App\Models\Top_selling;
 
 class TopSellingController extends Controller
 {
+
     // Create
 
     public function create(Request $req)
@@ -38,6 +39,7 @@ class TopSellingController extends Controller
     }
 
     // Read
+
     public function read()
     {
         $data = Top_selling::all();
@@ -46,6 +48,7 @@ class TopSellingController extends Controller
     }
 
     // Update
+
     public function showUpdate($id)
     {
         $data = Top_selling::find($id);
@@ -81,6 +84,7 @@ class TopSellingController extends Controller
     }
 
     // Delete
+    
     public function delete(Request $req, $id)
     {
         $top_selling = Top_selling::find($req->id);
